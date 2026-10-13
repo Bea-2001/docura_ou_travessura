@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monstro à Vista 🦇 - Virtual Trick or Treat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="corpo-sustinho">
+
+    <div class="container" id="caixa-susto" style="margin-top: 15vh;">
+        <h1 style="color: #ff3333;">AAAAH! 🦇</h1>
+        <p>Um monstro abanou o teu ecrã com tanta força que quase caíste da cadeira!</p>
+        
+        <div class="botoes">
+            <a href="https://paypal.me/O_TEU_NICKNAME" target="_blank" class="btn-docura">🍬 Dar Doçura de Paz</a>
+            <a href="index.html" class="btn-travessura" style="text-decoration: none; display: inline-block;">Fugir para o início</a>
+        </div>
+    </div>
+
+    <script>
+        // Animação de tremor ao carregar
+        const caixa = document.getElementById('caixa-susto');
+        let contador = 0;
+        
+        const tremer = setInterval(() => {
+            let x = (Math.random() - 0.5) * 30;
+            let y = (Math.random() - 0.5) * 30;
+            caixa.style.transform = `translate(${x}px, ${y}px)`;
+            contador++;
+            if(contador > 20) {
+                clearInterval(tremer);
+                caixa.style.transform = 'translate(0, 0)';
+            }
+        }, 50);
+    </script>
+
+</body>
+</html>

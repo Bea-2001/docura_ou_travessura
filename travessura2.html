@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invasão Fantasma 👻 - Virtual Trick or Treat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container" style="margin-top: 15vh;">
+        <h1 style="color: #ff9900;">Invasão de Espíritos!</h1>
+        <p>O site foi tomado por fantasmas esfomeados por doces...</p>
+        
+        <div class="botoes">
+            <a href="https://paypal.me/O_TEU_NICKNAME" target="_blank" class="btn-docura">🍬 Subornar com Doçura</a>
+            <a href="index.html" class="btn-travessura" style="text-decoration: none; display: inline-block;">Tentar a sorte de novo</a>
+        </div>
+    </div>
+
+    <script>
+        // Cria vários fantasmas a voar automaticamente ao carregar a página
+        for (let i = 0; i < 20; i++) {
+            let fantasma = document.createElement('div');
+            fantasma.innerHTML = '👻';
+            fantasma.classList.add('fantasma');
+            fantasma.style.top = Math.random() * window.innerHeight + 'px';
+            fantasma.style.left = Math.random() * window.innerWidth + 'px';
+            fantasma.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            fantasma.style.animationDelay = (Math.random() * 0.5) + 's';
+            document.body.appendChild(fantasma);
+        }
+    </script>
+
+</body>
+</html>

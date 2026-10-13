@@ -36,15 +36,7 @@ p {
     z-index: 2;
 }
 
-.botoes {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
-
-button, .btn-docura {
+button, .btn-docura, .btn-travessura {
     font-family: 'Special Elite', monospace;
     border: none;
     padding: 15px 30px;
@@ -53,26 +45,19 @@ button, .btn-docura {
     border-radius: 8px;
     transition: all 0.3s ease;
     text-decoration: none;
-    display: inline-block;
+    display: inline-flex; /* Alinha perfeitamente texto e emojis */
+    align-items: center;
+    justify-content: center;
     font-weight: bold;
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    min-width: 260px; /* Define uma largura mínima fixa para ficarem todos iguais! */
+    text-align: center;
+    box-sizing: border-box;
 }
 
 .btn-travessura {
     background-color: #ff6600;
     color: #ffffff;
-    text-decoration: none;
-    display: inline-block;
-    padding: 15px 35px; 
-    margin-top: 20px; 
-    border-radius: 8px;
-    font-family: 'Special Elite', monospace;
-    font-size: 1.1rem;
-    border: none;
-    text-align: center; 
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    transition: all 0.3s ease;
 }
 
 .btn-travessura:hover {
@@ -98,18 +83,15 @@ button, .btn-docura {
     font-size: 1.3rem;
 }
 
-/* --- MODO ESCURIDÃO / VELA --- */
 body.modo-escuro {
     background-color: #000000;
-    cursor: none; /* Esconde o cursor normal */
+    cursor: none; 
 }
 
-/* Esconde a página principal quando o modo escuro está ativo */
 body.modo-escuro .container-principal {
     display: none;
 }
 
-/* Ecrã de escuridão total com foco na vela */
 #ecra-vela {
     display: none;
     position: fixed;
@@ -118,7 +100,6 @@ body.modo-escuro .container-principal {
     width: 100vw;
     height: 100vh;
     background: #000000;
-    /* Cria um círculo transparente à volta do rato (coordenadas geradas por JS) */
     mask-image: radial-gradient(circle 120px at var(--x) var(--y), transparent 0%, black 100%);
     -webkit-mask-image: radial-gradient(circle 120px at var(--x) var(--y), transparent 0%, black 100%);
     z-index: 10;
@@ -129,7 +110,6 @@ body.modo-escuro #ecra-vela {
     display: block;
 }
 
-/* Elementos visíveis apenas sob a luz da vela */
 #conteudo-escuro {
     display: none;
     position: fixed;
@@ -149,7 +129,6 @@ body.modo-escuro #conteudo-escuro {
     display: flex;
 }
 
-/* O botão da doçura escondido na escuridão */
 .btn-docura-escondida {
     background-color: #2e7d32;
     color: white;
@@ -164,7 +143,6 @@ body.modo-escuro #conteudo-escuro {
     margin-top: 20px;
 }
 
-/* A chama da vela que substitui o rato */
 #cursor-vela {
     display: none;
     position: fixed;
@@ -179,7 +157,6 @@ body.modo-escuro #cursor-vela {
     display: block;
 }
 
-/* Animação dos Fantasmas */
 .fantasma {
     position: fixed;
     font-size: 50px;

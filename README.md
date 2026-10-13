@@ -7,5 +7,7 @@ Doçura ou Travessura
 
 👻 Como Funciona?
   O site coloca os visitantes perante a escolha clássica do Halloween:
+  
     🍬 Doçura: Um botão que permite apoiar o projeto através de um donativo seguro via PayPal.
+    
     🕷️ Travessura: Um botão que despoleta uma de várias surpresas aleatórias em JavaScript.

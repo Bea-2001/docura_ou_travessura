@@ -36,21 +36,23 @@ p {
     z-index: 2;
 }
 
-button, .btn-docura, .btn-travessura {
+bbutton, .btn-docura, .btn-travessura {
     font-family: 'Special Elite', monospace;
     border: none;
-    padding: 15px 30px;
+    padding: 0 20px; 
     font-size: 1.1rem;
     cursor: pointer;
     border-radius: 8px;
     transition: all 0.3s ease;
     text-decoration: none;
-    display: inline-flex; /* Alinha perfeitamente texto e emojis */
+    display: inline-flex; 
     align-items: center;
     justify-content: center;
     font-weight: bold;
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    min-width: 260px; /* Define uma largura mínima fixa para ficarem todos iguais! */
+    width: 100%;          
+    max-width: 280px;   
+    height: 60px;        
     text-align: center;
     box-sizing: border-box;
 }

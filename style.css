@@ -57,6 +57,7 @@ button, .btn-docura, .btn-travessura {
     text-decoration: none;
     display: inline-flex; 
     align-items: center;
+    align-content: center;
     justify-content: center;
     font-weight: bold;
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);

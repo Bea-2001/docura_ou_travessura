@@ -4,292 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Virtual Trick or Treat 🎃</title>
-    <!-- Importar fonte assustadora do Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Special+Elite&display=swap" rel="stylesheet">
-    
-    <style>
-        body {
-            background-color: #0d0d0d;
-            color: #f1f1f1;
-            font-family: 'Special Elite', monospace;
-            text-align: center;
-            margin: 0;
-            padding: 50px 20px;
-            overflow-x: hidden;
-            transition: background-color 0.5s ease;
-        }
-
-        h1 {
-            font-family: 'Creepster', cursive;
-            color: #ff6600;
-            font-size: 3.5rem;
-            letter-spacing: 2px;
-            text-shadow: 3px 3px #330000;
-            margin-bottom: 10px;
-        }
-
-        p {
-            font-size: 1.2rem;
-            color: #cccccc;
-            margin-bottom: 40px;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: rgba(26, 26, 26, 0.9);
-            padding: 40px;
-            border-radius: 15px;
-            border: 2px solid #ff6600;
-            box-shadow: 0 0 20px rgba(255, 102, 0, 0.3);
-            position: relative;
-            z-index: 2;
-        }
-
-        .botoes {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        button, .btn-docura {
-            font-family: 'Special Elite', monospace;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            font-weight: bold;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-        }
-
-        .btn-travessura {
-            background-color: #ff6600;
-            color: #ffffff;
-        }
-
-        .btn-travessura:hover {
-            background-color: #e55b00;
-            transform: scale(1.05);
-            box-shadow: 0 0 15px #ff6600;
-        }
-
-        .btn-docura {
-            background-color: #2e7d32;
-            color: #ffffff;
-        }
-
-        .btn-docura:hover {
-            background-color: #27692b;
-            transform: scale(1.05);
-            box-shadow: 0 0 15px #2e7d32;
-        }
-
-        #resultado-sustinho {
-            margin-top: 30px;
-            min-height: 80px;
-            font-size: 1.3rem;
-        }
-
-        /* --- MODO ESCURIDÃO / VELA --- */
-        body.modo-escuro {
-            background-color: #000000;
-            cursor: none; /* Esconde o cursor normal */
-        }
-
-        /* Esconde a página principal quando o modo escuro está ativo */
-        body.modo-escuro .container-principal {
-            display: none;
-        }
-
-        /* Ecrã de escuridão total com foco na vela */
-        #ecra-vela {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: #000000;
-            /* Cria um círculo transparente à volta do rato (coordenadas geradas por JS) */
-            mask-image: radial-gradient(circle 120px at var(--x) var(--y), transparent 0%, black 100%);
-            -webkit-mask-image: radial-gradient(circle 120px at var(--x) var(--y), transparent 0%, black 100%);
-            z-index: 10;
-            pointer-events: none;
-        }
-
-        body.modo-escuro #ecra-vela {
-            display: block;
-        }
-
-        /* Elementos visíveis apenas sob a luz da vela */
-        #conteudo-escuro {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 5;
-            color: #fff;
-            text-align: center;
-        }
-
-        body.modo-escuro #conteudo-escuro {
-            display: flex;
-        }
-
-        /* O botão da doçura escondido na escuridão */
-        .btn-docura-escondida {
-            background-color: #2e7d32;
-            color: white;
-            padding: 15px 30px;
-            font-size: 1.2rem;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            text-decoration: none;
-            font-family: 'Special Elite', monospace;
-            box-shadow: 0 0 15px #2e7d32;
-            margin-top: 20px;
-        }
-
-        /* A chama da vela que substitui o rato */
-        #cursor-vela {
-            display: none;
-            position: fixed;
-            pointer-events: none;
-            font-size: 35px;
-            transform: translate(-50%, -80%);
-            z-index: 20;
-            filter: drop-shadow(0 0 8px #ff9900);
-        }
-
-        body.modo-escuro #cursor-vela {
-            display: block;
-        }
-
-        /* Animação dos Fantasmas */
-        .fantasma {
-            position: fixed;
-            font-size: 50px;
-            animation: voar linear infinite;
-            z-index: 999;
-            pointer-events: none;
-        }
-
-        @keyframes voar {
-            0% { transform: translate(-100px, 100vh) rotate(0deg); }
-            50% { transform: translate(50vw, 50vh) rotate(20deg); }
-            100% { transform: translate(105vw, -100px) rotate(-20deg); }
-        }
-
-        footer {
-            margin-top: 50px;
-            font-size: 0.9rem;
-            color: #666;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- CONTAINER PRINCIPAL -->
     <div class="container container-principal">
         <h1>Virtual Trick or Treat</h1>
         <p>A coragem tem um preço... vais escolher uma Doçura ou uma Travessura?</p>
 
         <div class="botoes">
             <a href="https://www.paypal.me/BeaMatos2001" target="_blank" class="btn-docura">🍬 Doçura!</a>
-            <button class="btn-travessura" onclick="fazerTravessura()">🕷️ Travessura!</button>
+            <button class="btn-travessura" onclick="escolherTravessuraAleatoria()">🕷️ Travessura!</button>
         </div>
 
         <div id="resultado-sustinho"></div>
     </div>
 
-    <!-- MODO ESCURO / VELA (Ativado pela travessura) -->
-    <div id="ecra-vela"></div>
-    
-    <div id="conteudo-escuro">
-        <h2 style="font-family: 'Creepster', cursive; color: #ff3333; font-size: 2.5rem;">A luz apagou-se...</h2>
-        <p>Procura bem nas sombras. Consegues encontrar a doçura escondida?</p>
-        <a href="https://www.paypal.me/BeaMatos2001" target="_blank" class="btn-docura-escondida">🍬 Encontraste a Doçura!</a>
-        <br><br>
-        <button onclick="sairEscuridao()" style="background: #444; color: #fff; padding: 8px 15px; border-radius: 5px; cursor: pointer; border: none;">Voltar à luz</button>
-    </div>
-
-    <!-- O rato em forma de vela -->
-    <div id="cursor-vela">🕯️</div>
-
-    <footer class="container-principal">
+    <footer>
         Criado para a noite mais assustadora do ano 🎃
     </footer>
 
     <script>
-        // Seguir a posição do rato para o efeito da vela
-        const cursorVela = document.getElementById('cursor-vela');
-        
-        window.addEventListener('mousemove', (e) => {
-            const x = e.clientX + 'px';
-            const y = e.clientY + 'px';
+        function escolherTravessuraAleatoria() {
+            const numero = Math.floor(Math.random() * 3) + 1;
             
-            // Atualiza as variáveis de CSS para o efeito de luz/máscara
-            document.documentElement.style.setProperty('--x', x);
-            document.documentElement.style.setProperty('--y', y);
-            
-            // Move o ícone da vela para cima do cursor
-            cursorVela.style.left = x;
-            cursorVela.style.top = y;
-        });
-
-        function fazerTravessura() {
-            const travessuraAleatoria = Math.floor(Math.random() * 3) + 1;
-
-            // Limpa efeitos anteriores
-            document.body.classList.remove('modo-escuro');
-            const fantasmasAntigos = document.querySelectorAll('.fantasma');
-            fantasmasAntigos.forEach(f => f.remove());
-
-            const caixaResultado = document.getElementById('resultado-sustinho');
-
-            if (travessuraAleatoria === 1) {
-                // 1. Mudar para a página de escuridão com a vela e o botão escondido
-                document.body.classList.add('modo-escuro');
-                
-            } else if (travessuraAleatoria === 2) {
-                // 2. Invasão de fantasmas flutuantes
-                caixaResultado.innerHTML = "<span style='color: #ff9900;'>Cuidado! O site foi invadido por espíritos malignos! 👻</span>";
-                for (let i = 0; i < 15; i++) {
-                    let fantasma = document.createElement('div');
-                    fantasma.innerHTML = '👻';
-                    fantasma.classList.add('fantasma');
-                    fantasma.style.top = Math.random() * window.innerHeight + 'px';
-                    fantasma.style.left = Math.random() * window.innerWidth + 'px';
-                    fantasma.style.animationDuration = (Math.random() * 2 + 2) + 's';
-                    fantasma.style.animationDelay = (Math.random() * 0.5) + 's';
-                    document.body.appendChild(fantasma);
-                }
-
-            } else {
-                // 3. Susto de alerta na página
-                caixaResultado.innerHTML = "<span style='color: #00ffcc;'>Aha! Um monstro abanou o teu ecrã... Tenta outra vez se tiveres coragem! 🦇</span>";
-                const container = document.querySelector('.container-principal');
-                container.style.transform = "translate(5px, 5px)";
-                setTimeout(() => { container.style.transform = "translate(-5px, -5px)"; }, 100);
-                setTimeout(() => { container.style.transform = "translate(0, 0)"; }, 200);
-            }
-        }
-
-        function sairEscuridao() {
-            document.body.classList.remove('modo-escuro');
-            document.getElementById('resultado-sustinho').innerHTML = "<span>Uf... conseguiste escapar da escuridão! 🕯️</span>";
+            window.location.href = `travessura${numero}.html`;
         }
     </script>
 

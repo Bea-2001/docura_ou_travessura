@@ -63,14 +63,16 @@ button, .btn-docura {
     color: #ffffff;
     text-decoration: none;
     display: inline-block;
-    padding: 12px 25px;
+    padding: 15px 35px; 
+    margin-top: 20px; 
     border-radius: 8px;
     font-family: 'Special Elite', monospace;
-    font-size: 1rem;
-    border: 1px solid #555555;
-    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    border: none;
+    text-align: center; 
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
 }
 
 .btn-travessura:hover {
